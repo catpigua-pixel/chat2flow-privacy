@@ -1,6 +1,6 @@
 # Chat2Flow Privacy Policy
 
-Public bilingual privacy policy for the Chat2Flow Chrome extension.
+Public English-language privacy policy for the Chat2Flow Chrome extension.
 
 Website: https://catpigua-pixel.github.io/chat2flow-privacy/
 
