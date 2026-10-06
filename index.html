@@ -3,74 +3,92 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chat2Flow Privacy Policy / 隐私政策</title>
+    <title>Chat2Flow Privacy Policy</title>
     <style>
-      :root { color: #263238; background: #f4f8f6; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", sans-serif; }
+      :root { color: #263238; background: #f4f8f6; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
       body { margin: 0; }
       main { box-sizing: border-box; max-width: 900px; margin: 32px auto; padding: 32px 40px; background: white; border: 1px solid #d9e4df; border-radius: 12px; box-shadow: 0 8px 28px rgba(0,0,0,.06); }
       h1 { color: #005a43; font-size: 1.75rem; }
       h2 { margin-top: 2rem; color: #005a43; font-size: 1.15rem; }
       p, li { line-height: 1.7; }
-      a { color: #006b50; }
-      .date, .note { color: #5f6f69; }
-      .zh { margin-top: .6rem; }
+      li { margin-bottom: .5rem; }
+      a { color: #006b50; overflow-wrap: anywhere; }
+      .date { color: #5f6f69; }
       code { overflow-wrap: anywhere; }
       @media (max-width: 680px) { main { margin: 0; padding: 22px; border: 0; border-radius: 0; } }
     </style>
   </head>
   <body>
     <main>
-      <h1>Chat2Flow Privacy Policy / 隐私政策</h1>
-      <p class="date"><strong>Last updated: August 24, 2026 / 最后更新：2026年8月24日</strong></p>
-      <p>This policy describes how Chat2Flow (the “Extension”) handles information. The Extension is a bring-your-own-key Chrome extension that turns user instructions into diagrams.</p>
-      <p class="zh">本政策说明 Chat2Flow（以下简称“本插件”）如何处理信息。本插件是一款由用户自行提供 API Key、根据用户指令生成图表的 Chrome 插件。</p>
+      <h1>Chat2Flow Privacy Policy</h1>
+      <p class="date"><strong>Last updated: October 6, 2026</strong></p>
+      <p>This policy explains how Chat2Flow (the “Extension”) handles information, as well as how its public privacy-policy website and support contact handle information. Chat2Flow is a bring-your-own-key Chrome extension that turns user instructions into editable diagrams.</p>
 
-      <h2>1. Information handled / 处理的信息</h2>
-      <p>The Extension handles course context, diagram instructions, chat messages, generated DiagramIR and draw.io XML, model and interface settings, a user-supplied OpenAI API Key, and—only when “Don't show again” is selected—a minimal record containing the current privacy-policy version.</p>
-      <p class="zh">本插件处理课程背景、图表指令、聊天消息、生成的 DiagramIR 与 draw.io XML、模型和界面设置、用户提供的 OpenAI API Key，以及仅在勾选“不再显示”时保存的当前隐私政策版本记录。</p>
-      <p>The Extension does not intentionally collect names, email addresses, IP addresses, browsing history, or webpage content. User-entered text may itself contain personal information. Do not enter passwords, identity documents, payment details, health information, or other sensitive data.</p>
-      <p class="zh">本插件不会主动收集姓名、电子邮箱、IP 地址、浏览历史或网页内容，但用户输入可能包含个人信息。请勿输入密码、身份证件、支付、健康或其他敏感信息。</p>
+      <section>
+        <h2>1. Information handled</h2>
+        <p>The Extension processes course context, diagram instructions, chat messages, generated DiagramIR structures and draw.io-compatible XML, model and interface settings, and a user-supplied OpenAI API key. Local chat records also contain chat titles, locally generated identifiers, and creation and update times. If you select “Don't show again,” a minimal consent record containing only the current privacy-policy version is saved.</p>
+        <p>The Extension does not read your browsing history or content from webpages. It does not automatically collect your name or email address for the developer. However, text you enter may contain personal information. Do not include passwords, identity documents, payment details, health information, or other sensitive data in course context, chats, or diagrams. Enter your API key and encryption password only in their dedicated Settings fields.</p>
+      </section>
 
-      <h2>2. Local storage and API Key security / 本地存储与 API Key 安全</h2>
-      <p>Course context, chats, DiagramIR, diagram XML, and settings are stored locally using Chrome extension storage. The developer does not operate a separate server or database that receives this data.</p>
-      <p class="zh">课程背景、聊天、DiagramIR、图表 XML 和设置通过 Chrome 插件存储保存在本地。开发者未运营用于接收这些数据的独立服务器或数据库。</p>
-      <p>By default, the API Key is kept only in Chrome session storage. If the user explicitly saves it, PBKDF2-SHA-256 derives a key from the user's local password and AES-256-GCM encrypts the API Key locally. The password is never stored or transmitted and cannot be recovered.</p>
-      <p class="zh">API Key 默认仅保存在 Chrome 会话存储中。用户明确选择保存时，本插件使用 PBKDF2-SHA-256 从本地密码派生密钥，并以 AES-256-GCM 加密保存 API Key。密码不会被保存或传输，也无法恢复。</p>
+      <section>
+        <h2>2. Local storage and API key security</h2>
+        <p>Course context, chats, diagrams, and settings are stored on your device using Chrome extension storage. These records are not encrypted by the Extension. Encryption described below applies only to the optionally saved API key, not to all locally stored data. The developer does not operate a separate server or database that receives your chat or diagram content.</p>
+        <p>By default, the API key is kept in Chrome session storage rather than persisted to disk by the Extension. It remains available to the Extension during that Chrome session. When you select “Save API key on this device,” the Extension uses PBKDF2-SHA-256 to derive an encryption key from a password you choose and uses AES-256-GCM to encrypt the API key before saving it locally.</p>
+        <p>The encryption password is a separate password you enter in the Extension, not your operating-system login password. It is not saved or sent to a server and cannot be recovered by the developer. If you forget it, delete the saved key and enter your API key again. While in use, including after unlocking, the API key is available in plaintext to the Extension for authentication.</p>
+      </section>
 
-      <h2>3. OpenAI / 发送给 OpenAI 的数据</h2>
-      <p>Diagram requests send the current instruction, course context, recent chat history, the previous diagram structure when applicable, required system instructions, and the API Key directly to the OpenAI API over HTTPS. “Test connection” sends the API Key to OpenAI and requests the model list.</p>
-      <p class="zh">生成图表时，当前指令、课程背景、最近聊天记录、适用时的上一版图表结构、必要的系统指令和 API Key 会通过 HTTPS 直接发送给 OpenAI API。“测试连接”会向 OpenAI 发送 API Key 并请求模型列表。</p>
-      <p>OpenAI states that API data is not used to train or improve its models unless the account holder opts in. Default abuse-monitoring logs may include prompts, responses, and related metadata and may be retained for up to 30 days, subject to OpenAI's stated exceptions. Review the <a href="https://developers.openai.com/api/docs/guides/your-data" target="_blank" rel="noreferrer">OpenAI API data controls</a> and <a href="https://openai.com/policies/privacy-policy/" target="_blank" rel="noreferrer">OpenAI Privacy Policy</a>.</p>
-      <p class="zh">OpenAI 说明，除非账户持有人主动选择共享，否则 API 数据不会用于训练或改进其模型。默认滥用监控日志可能包含提示词、响应和相关元数据，并可能保留最多 30 天，但存在 OpenAI 公布的例外情况。请查阅上述 OpenAI 官方政策。</p>
+      <section>
+        <h2>3. Data sent to OpenAI</h2>
+        <p>When you request a diagram, the Extension sends your current instruction, course context, recent chat history, the previous diagram structure when applicable, and required system instructions directly to the OpenAI API over HTTPS. Your API key is sent in the authorization header. “Test connection” sends your API key directly to OpenAI and requests the model list. These requests do not pass through a developer-operated server.</p>
+        <p>OpenAI states that API data is not used to train or improve its models unless the account holder explicitly opts in. Default abuse-monitoring logs may contain prompts, responses, and related metadata and are generally retained for up to 30 days, with exceptions described by OpenAI. OpenAI controls its own processing and retention; review the <a href="https://developers.openai.com/api/docs/guides/your-data" target="_blank" rel="noreferrer">OpenAI API data controls</a> and <a href="https://openai.com/policies/privacy-policy/" target="_blank" rel="noreferrer">OpenAI Privacy Policy</a> for current details.</p>
+        <p>Connecting to third-party services necessarily exposes network information, such as your IP address, to those services. This is separate from developer-operated collection or analytics.</p>
+      </section>
 
-      <h2>4. diagrams.net / 发送给 diagrams.net 的数据</h2>
-      <p>Generated XML is sent by browser messaging to the embedded editor at <code>embed.diagrams.net</code> for display and editing. Only when the user explicitly opens the external application is XML included in the URL fragment opened at <code>app.diagrams.net</code>. No API Key is sent to diagrams.net. Review the <a href="https://www.diagrams.net/trust/" target="_blank" rel="noreferrer">JGraph privacy information</a>.</p>
-      <p class="zh">生成的 XML 会通过浏览器消息发送给 <code>embed.diagrams.net</code> 的嵌入式编辑器。只有用户明确选择外部打开时，XML 才会包含在打开至 <code>app.diagrams.net</code> 的 URL 片段中。API Key 不会发送给 diagrams.net。</p>
+      <section>
+        <h2>4. Data provided to diagrams.net</h2>
+        <p>Generated diagram XML is provided through browser messaging to the embedded editor at <code>embed.diagrams.net</code> for display and editing. This provides the XML to third-party editor code running in your browser; it does not itself mean that the Extension uploads the XML to a diagrams.net storage server.</p>
+        <p>Only when you choose to open the external editor does the Extension open <code>app.diagrams.net</code> with the diagram XML in the URL fragment and the diagram title in the URL query. Loading either editor connects your browser to that service. Features you use in the external editor, including saving or exporting through third-party services, are governed by that service's own terms.</p>
+        <p>No API key or encryption password is provided to diagrams.net. Review the <a href="https://www.drawio.com/trust/" target="_blank" rel="noreferrer">draw.io privacy policy</a> for the editor's data practices.</p>
+      </section>
 
-      <h2>5. Use, sharing, and sale / 使用、共享与出售</h2>
-      <p>Data is used only for the disclosed diagram-generation features and is shared only with OpenAI and diagrams.net as described above. The developer does not sell or rent user data, use it for advertising, transfer it to data brokers, or use it for creditworthiness or lending. The Extension has no developer-operated analytics or advertising trackers.</p>
-      <p class="zh">数据仅用于已披露的图表生成功能，并且仅在上述情形下与 OpenAI 和 diagrams.net 共享。开发者不会出售或出租用户数据，不会将其用于广告、数据经纪、信用评估或贷款。本插件不包含开发者运营的分析或广告追踪器。</p>
-      <p>The Extension's use of information complies with the Chrome Web Store User Data Policy, including the Limited Use requirements, and is limited to its disclosed single purpose.</p>
-      <p class="zh">本插件对信息的使用遵守 Chrome Web Store 用户数据政策，包括 Limited Use 要求，并仅限于已披露的单一用途。</p>
+      <section>
+        <h2>5. Use, sharing, and Limited Use</h2>
+        <p>Extension data is used only to provide its disclosed diagram-generation features and related local settings. Diagram-generation data is provided to OpenAI and diagrams.net as described above. Separate website-hosting and support-email processing is described in Sections 8 and 9.</p>
+        <p>The developer does not sell or rent user data, use it for advertising, transfer it to data brokers, or use it for creditworthiness or lending. The Extension contains no developer-operated analytics or advertising trackers.</p>
+        <p>The Extension's use and transfer of user information adhere to the Chrome Web Store User Data Policy, including the Limited Use requirements, and are limited to its disclosed single purpose. The developer has no remote access through the Extension to your local chats or diagrams and does not routinely read them. If you voluntarily share specific content for support, it is used to address your request, not for advertising or unrelated purposes.</p>
+      </section>
 
-      <h2>6. Retention, deletion, and choices / 保留、删除与选择</h2>
-      <p>Local chats and diagrams remain until cleared or deleted, Chrome extension data is cleared, or the Extension is uninstalled. Settings and course context can be replaced. The API Key can be removed from Settings. OpenAI and diagrams.net retain data under their own policies and account settings.</p>
-      <p class="zh">本地聊天和图表会保留到被清空或删除、Chrome 插件数据被清除或插件被卸载为止。设置和课程背景可以替换，API Key 可以在设置中删除。OpenAI 和 diagrams.net 按各自政策和账户设置保留数据。</p>
-      <p>If “Don't show again” is unchecked, consent lasts only until the current page closes. If checked, only the current policy version is stored. A changed policy version requires consent again.</p>
-      <p class="zh">不勾选“不再显示”时，同意仅持续到当前页面关闭；勾选后仅保存当前政策版本。政策版本变化后需要重新同意。</p>
+      <section>
+        <h2>6. Retention, deletion, and choices</h2>
+        <p>Local records remain until you remove them or uninstall the Extension. The following controls have different effects:</p>
+        <ul><li><strong>Clear chat:</strong> removes messages and the generated diagram from the current chat, but keeps that chat's course context.</li><li><strong>Delete a chat:</strong> removes that chat's local record, including its course context and diagram. The last remaining chat cannot be deleted with this control; use Clear chat for its messages and diagram.</li><li><strong>Edit course context:</strong> replaces the current chat's course context and updates the default context for future chats. Other chats may still contain their own earlier context.</li><li><strong>Settings → Delete API key:</strong> removes the session key and any locally saved encrypted key. It does not revoke the key in your OpenAI account; revoke it there if necessary.</li><li><strong>Uninstall:</strong> removes the Extension's local storage, including settings, chat records, saved keys, and the saved consent record. Downloaded files and copies placed on the clipboard or saved in external services are not removed by uninstalling.</li></ul>
+        <p>Deleting local data does not delete logs or other records already held by OpenAI, diagrams.net, GitHub, or your email provider. Their retention and deletion options are governed by their own policies and account settings.</p>
+        <p>The privacy notice appears before feature data is processed unless a valid consent record exists. “Agree and continue” is the consent action. If “Don't show again” is unchecked, consent lasts only for the current Extension page lifecycle and is not persisted. If checked, only the current consent-policy version is stored locally. A change to that version requires consent again. “Not now” blocks feature use without saving new feature input or calling OpenAI.</p>
+      </section>
 
-      <h2>7. Security / 安全措施</h2>
-      <p>Extension-initiated network transmissions use HTTPS. Sensitive credentials are not sent to the extension developer. No storage or transmission method is completely secure; use an OpenAI API Key with appropriate project permissions and spending limits.</p>
-      <p class="zh">插件发起的网络传输使用 HTTPS，敏感凭据不会发送给插件开发者。任何方式都不能保证绝对安全，请为 OpenAI API Key 设置适当的项目权限和消费限额。</p>
+      <section>
+        <h2>7. Security</h2>
+        <p>Network requests initiated by the Extension use HTTPS. API credentials are sent to OpenAI for authentication, not to the developer, diagrams.net, or the privacy-policy website. The optional API-key encryption does not protect the entire Chrome profile or encrypt your chats and diagrams.</p>
+        <p>No storage or transmission method is completely secure. Use a dedicated OpenAI project key with appropriate permissions and spending limits, protect your device and Chrome profile, and do not send real API keys or encryption passwords in support messages.</p>
+      </section>
 
-      <h2>8. Changes / 政策变更</h2>
-      <p>This policy may be updated when functionality, data practices, or legal obligations change. Material data-practice changes will be prominently disclosed before changed processing begins.</p>
-      <p class="zh">当功能、数据处理方式或法律义务变化时，本政策可能更新。重大数据处理变化会在新的处理开始前显著披露。</p>
+      <section>
+        <h2>8. Privacy-policy website hosting</h2>
+        <p>The public version of this policy is hosted using GitHub Pages. GitHub states that it logs and stores visitors' IP addresses for security purposes, whether or not they are signed in. This website-hosting processing is separate from the Extension's chat and diagram processing; the Extension does not automatically send your API key, course context, chats, or diagrams to this website.</p>
+        <p>The policy page contains no developer-added analytics, advertising scripts, or tracking cookies. GitHub's hosting practices are governed by its own policies. Review <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages#data-collection" target="_blank" rel="noreferrer">GitHub Pages data collection</a> and the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noreferrer">GitHub Privacy Statement</a>.</p>
+      </section>
 
-      <h2>9. Contact / 联系方式</h2>
-      <p>For privacy questions or requests, contact: <a href="mailto:amy.huangjujun@gmail.com">amy.huangjujun@gmail.com</a>.</p>
-      <p class="zh">如有隐私问题或请求，请联系：<a href="mailto:amy.huangjujun@gmail.com">amy.huangjujun@gmail.com</a>。</p>
-      <p class="note">This policy is based on the Extension's behavior as of the date above and is not legal advice. / 本政策基于上述日期时插件的行为编写，不构成法律意见。</p>
+      <section>
+        <h2>9. Contact and support email</h2>
+        <p>For privacy questions or requests, contact <a href="mailto:amy.huangjujun@gmail.com">amy.huangjujun@gmail.com</a>.</p>
+        <p>If you choose to email the developer, the developer receives your email address, message, and any attachments you provide. These are used to respond to your request. Please provide only the information needed and remove personal or sensitive content from examples and screenshots. Never send an API key or encryption password.</p>
+        <p>Support email is handled through Gmail and is subject to the email providers' policies. You may request deletion of support correspondence using the contact address above; applicable legal obligations may limit deletion. The developer cannot recover or remotely delete data stored only on your device or independently held by third-party services.</p>
+      </section>
+
+      <section>
+        <h2>10. Changes to this policy</h2>
+        <p>This policy may be updated when functionality, data practices, or legal obligations change. The last-updated date will be revised. Material changes to Extension data processing will be prominently disclosed before the changed processing begins, and consent will be requested again where required.</p>
+      </section>
     </main>
   </body>
 </html>
